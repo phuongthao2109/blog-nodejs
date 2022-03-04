@@ -1,8 +1,10 @@
 @import 'variables';
 
-h1 {
-    color: $red-color;
+.card-course-item{
+    margin-top: 10px
 }
-p {
-    color: green;
+.course-img{
+    width: 100%;
+    height: 200px;
+    
 }

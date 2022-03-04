@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "beauty" : "lint-staged",
+    "beauty": "lint-staged",
     "start": "nodemon  --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/ -o  src/public/css/"
   },
@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "express": "^4.17.3",
-    "express-handlebars": "^6.0.3"
+    "express-handlebars": "^6.0.3",
+    "mongoose": "^6.2.4"
   },
   "devDependencies": {
     "husky": "^7.0.4",
