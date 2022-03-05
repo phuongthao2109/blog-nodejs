@@ -1,0 +1,18 @@
+<div class="mt-4">
+   <a href="/course/create" class="btn btn-outline-primary ">Thêm mới khóa học</a>
+   <div class="row">
+      {{#each courses}}
+      <div class="col-sm-6 col-lg-4">
+         <div class="card card-course-item">
+            <a href="/course/{{this.slug}}"><img class="card-img-top course-img" src="{{this.image}}" alt="Card image cap"></a>
+            <div class="card-body">
+               <a href="/course/{{this.slug}}" class="course-name"><h5 class="card-title">{{this.name}}</h5></a>
+               <p class="card-text">{{this.desc}}</p>
+               <a href="/course/{{this.slug}}" class="btn btn-primary">Go Detail</a>
+            </div>
+         </div>
+      </div>
+      {{/each}}
+
+   </div>
+</div>
