@@ -15,10 +15,9 @@ class AdminController {
     }
 
     store(req, res, next) {
-        const formData = req.body;
-        formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
-        const course = new Course(formData);
-        course.save().then(() => res.redirect('/course'))
+        req.body.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
+        const course = new Course(req.body);
+        course.save().then(() => res.redirect('/admin/courses'))
     }
 
     getOldData(req, res, next) {
@@ -34,6 +33,21 @@ class AdminController {
         .catch(next)
     }
     delete(req, res, next) {
+        Course.delete({_id: req.params.id})
+        .then(() => res.redirect('back'))
+        .catch(next)
+    }
+    courseBind(req, res, next) {
+        Course.findDeleted({})
+        .then(courses => { res.render('admin/Course/bin', { courses: mutipleMongooseToObject(courses) }) })
+        .catch(next) 
+    }
+    RestorecourseBind(req, res, next){
+        Course.restore({_id: req.params.id})
+        .then(() => res.redirect('back'))
+        .catch(next)
+    }
+    forceDelete(req, res, next){
         Course.deleteOne({_id: req.params.id})
         .then(() => res.redirect('back'))
         .catch(next)
