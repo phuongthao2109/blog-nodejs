@@ -8,5 +8,6 @@ router.get('/courses', AdminController.listCourses);
 router.get('/course/create', AdminController.create);
 router.post('/course/store', AdminController.store)
 router.get('/course/:id/edit', AdminController.getOldData);
-router.patch('/course/:id', AdminController.edit)
+router.patch('/course/:id', AdminController.edit);
+router.delete('/course/:id', AdminController.delete)
 module.exports = router;

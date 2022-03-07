@@ -14,6 +14,7 @@
    </thead>
    <tbody>
       {{#each courses}}
+
       <tr>
          <th scope="row">{{sum @index 1}}</th>
          <td><img src="{{this.image}}" alt="" width="100" height="100"></td>
@@ -29,3 +30,23 @@
 
    </tbody>
 </table>
+
+{{!-- confirm --}}
+<form action="" id="deleteForm" method="POST"></form>
+<script>
+   const btnDels = document.querySelectorAll(".delete");
+   const deleteForm = document.querySelector("#deleteForm");
+
+   btnDels.forEach(del => {
+      const id = del.dataset.id;
+
+      del.addEventListener("click", () => {
+         const confirm = window.confirm("Are you sure you want to delete this course?");
+         if (confirm) {
+            deleteForm.action = '/admin/course/' + id + '?_method=DELETE';
+            deleteForm.submit();
+            
+         }
+      })
+   })
+</script>
