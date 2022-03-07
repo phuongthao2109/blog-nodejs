@@ -11,12 +11,8 @@ class CourseController {
             .then(course => res.render('course/detail', { course: mongooseToObject(course) }))
             .catch(next)
     }
-    create(req, res, next){
-        res.render('course/create')
-    }
-    store(req, res, next){
-        res.json(req.body)
-    }
+
+   
 }
 
 module.exports = new CourseController();
