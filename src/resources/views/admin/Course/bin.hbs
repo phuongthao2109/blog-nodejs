@@ -11,6 +11,7 @@
          <th scope="col">Img</th>
          <th scope="col">Name</th>
          <th scope="col">Level</th>
+         <th>Deleted_At</th>
          <th></th>
       </tr>
    </thead>
@@ -22,6 +23,7 @@
          <td><img src="{{this.image}}" alt="" width="100" height="100"></td>
          <td>{{this.name}}</td>
          <td>{{this.level}}</td>
+         <td>{{this.deletedAt}}</td>
          <td>
             <button class='btn btn-danger delete' data-id='{{this._id}}'>Xóa vĩnh viễn</button>
             <a href='' class='btn btn-warning restore' data-id='{{this._id}}'>Khôi Phục</a>
