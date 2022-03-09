@@ -7,6 +7,7 @@ const port = 3000;
 const methodOverride = require('method-override');
 const route = require('./routes');
 const db = require('./config/db');
+const $ = require('jquery');
 //connect to db 
 db.connect();
 
