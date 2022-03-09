@@ -16,7 +16,7 @@
          <option value="delete">Delete</option>
 
       </select>
-      <button class="btn btn-primary btn-sm disabled btn-check-submit" id="">Action</button>
+      <button class="btn btn-primary btn-sm btn-check-submit" id="" disabled>Action</button>
    </div>
    <table class="table mt-4">
       <thead>
@@ -65,9 +65,7 @@
    const checkboxAll = $('#checkboxAll');
    const checkItems = $('input[name="cousersIds[]"]');
    const btnCheckSubmit = $('.btn-check-submit');
-   const conatainerForm = $('.conatainer-form');
-
-   console.log(conatainerForm)
+   const conatainerForm = $('form[name="conatainer-form"]');
 
    btnDels.forEach(del => {
       const id = del.dataset.id;
@@ -94,23 +92,17 @@
       renderCheckAllBtn();
    });
 
-   //requied btn submit 
-   btnCheckSubmit.on('submit', function (e) {
-       let isSubmitable = !$(this).hasClass('disabled')
-      if (!isSubmitable) {
-         e.preventDefault();
-      }
-   })
-
+   
+   
 
 
    //re-render check all submit btn 
    function renderCheckAllBtn() {
       let checkedCount = $('input[name="cousersIds[]"]:checked').length;
       if (checkedCount > 0) {
-         btnCheckSubmit.removeClass('disabled')
+         btnCheckSubmit.attr('disabled',false)
       } else {
-         btnCheckSubmit.addClass('disabled')
+         btnCheckSubmit.attr('disabled',true)
       }
    }
 
