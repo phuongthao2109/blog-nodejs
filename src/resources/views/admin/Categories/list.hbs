@@ -1,8 +1,7 @@
 <form action="/admin/course/handle-form-action" method="POST" name="conatainer-form" class="conatainer-form">
-   <h1 class="text-center">LIST COURSES</h1>
+   <h1 class="text-center">List Categories</h1>
    <div class="d-flex justify-content-between">
-      <a href="/admin/course/create" class="btn btn-outline-primary ">Thêm mới khóa học</a>
-      <a href="/admin/course/bin" class="btn btn-warning ">Khóa học đã xóa ({{deleteCount}})</a>
+      <a href="/admin/categories/create" class="btn btn-outline-primary ">Thêm mới Danh muc</a>
    </div>
    <div class="mt-4 d-flex align-items-center">
       <div class="form-check">
@@ -24,13 +23,13 @@
             <th>#</th>
             <th scope="col">#</th>
             <th scope="col">Img</th>
-            <th scope="col">Name <a href="?_sort&column=name&type=asc"class="oi oi-elevator"></a></th>
-            <th scope="col">Level</th>
-            <th></th><span </span>
+            <th scope="col">Name</th>
+            <th>Create_at</th>
+            <th></th>
          </tr>
       </thead>
       <tbody>
-         {{#each courses}}
+         {{#each categories}}
 
          <tr>
             <td>
@@ -41,7 +40,7 @@
             <th scope="row">{{sum @index 1}}</th>
             <td><img src="{{this.image}}" alt="" width="100" height="100"></td>
             <td>{{this.name}}</td>
-            <td>{{this.level}}</td>
+            <td>{{this.creatAt}}</td>
             <td>
                <button class="btn btn-danger delete" data-id="{{this._id}}">Delete</button>
                <a href="/admin/course/{{this._id}}/edit" class="btn btn-warning">Edit</a>

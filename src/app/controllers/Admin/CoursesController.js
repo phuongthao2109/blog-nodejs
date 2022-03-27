@@ -1,5 +1,5 @@
-const Course = require('../models/Course');
-const { mongooseToObject, mutipleMongooseToObject } = require('../../ultils/mongoose')
+const Course = require('../../models/Course');
+const { mongooseToObject, mutipleMongooseToObject } = require('../../../ultils/mongoose');
 
 class AdminController {
     dashboard(req, res, next) {
@@ -75,7 +75,7 @@ class AdminController {
     handleFormAction(req, res, next) {
         switch (req.body.action) {
             case 'delete':
-                Course.delete({ _id: {$in: req.body.cousersIds}})
+                Course.delete({ _id: { $in: req.body.cousersIds } })
                     .then(() => res.redirect('back'))
                     .catch(next)
                 break;
